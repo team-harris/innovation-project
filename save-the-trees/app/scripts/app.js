@@ -10,7 +10,7 @@
 (function() {
   var app = angular.module('EcoCisco', []); 
 
-  app.controller("GlobalController", function($scope) {
+  app.controller('GlobalController', function($scope) {
     $scope.state = {
       isLoggedIn: false
     };
@@ -45,51 +45,83 @@
 
       $scope.login = function() {
         this.changeLoginState();
+
+        // automatically show My EcoCisco after login 
+        this.buttons[0].selected = true;
       };
 
   });
 
-  app.controller('SideNavController', function($scope) {
+  app.controller('DashboardController', function($scope) {
 
     $scope.buttons = [{
-      label: "My EcoCisco", 
-      class: "fa fa-dashboard",
-      selected: true
-    }, {
-      label: "My EcoStanding",
-      class: "fa fa-table",
+      label: 'My EcoCisco', 
+      class: 'fa fa-dashboard',
       selected: false
     }, {
-      label: "My EcoEnergy",
-      class: "fa fa-bar-chart-o",
+      label: 'My EcoStanding',
+      class: 'fa fa-table',
       selected: false
     }, {
-      label: "About",
-      class: "fa fa-edit",
+      label: 'My EcoEnergy',
+      class: 'fa fa-bar-chart-o',
+      selected: false
+    }, {
+      label: 'About',
+      class: 'fa fa-edit',
       selected: false
     }];
 
     function returnSelectedButton(array) {
-      array.forEach(function(element) {
-        if (element.selected) {
-          return element;
+      for (var i = 0; i < array.length; i++) {
+        if (array[i].selected) {
+          return array[i];
         }
-      });
+      }
       return null;
     }
 
     $scope.isSelected = function(index) {
-      return (this.buttons[index].selected);
+      return (this.buttons[index].selected && this.state.isLoggedIn);
+    }
+
+    $scope.showPanel = function(panelName) {
+      for(var i = 0; i < this.buttons.length; i++) {
+        if (panelName == this.buttons[i].label && this.state.isLoggedIn) {
+          return true;
+        }
+      }
+      return false;
     }
 
     $scope.toggle = function(index) {
-      var prevSelectedElem = returnSelectedButton(this.buttons);
-      if (prevSelectedElem) {
-        prevSelectedElem.selected = false;
+      if (this.state.isLoggedIn) {
+        var prevSelectedElem = returnSelectedButton(this.buttons);
+        if (prevSelectedElem) {
+          prevSelectedElem.selected = false;
+        }
+        this.buttons[index].selected = true;
       }
-      this.buttons[index].selected = true;
     }
 
   });
+  
+  app.controller('MyEcoCiscoController', function($scope) {
+    $scope.ECO_CISCO_PANEL = "My EcoCisco";
 
+  });
+
+  app.controller('MyEcoStandingController', function($scope){
+    $scope.ECO_STANDING_PANEL = "My EcoStanding";
+
+  });
+
+  app.controller('MyEcoEnergyController', function($scope) {
+    $scope.ECO_ENERGY_PANEL = 'MyEcoEnergyController';
+  });
+
+  app.controller('AboutController', function($scope) {
+    $scope.ABOUT_PANEL = 'AboutController';
+  });
+    
 })();

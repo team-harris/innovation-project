@@ -29,6 +29,7 @@ h5,
 h6 {
     font-family: "Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
+    color: #fff
 }
 
 a,
@@ -171,7 +172,7 @@ a:focus {
     }
 
     .page-content {
-        opacity: 0.3;
+        opacity: 1;
         -webkit-transition: opacity .4s linear;
         -moz-transition: opacity .4s linear;
         -o-transition: opacity .4s linear;
@@ -566,6 +567,15 @@ a:focus {
     background-color: #292929;
 }
 
+.navbar-side .navbar-nav>li>a.select {
+    pointer-events: none;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    outline: none;
+    color: #fff;
+    background-color: #56799c;
+    pointer-events: none;
+}
+
 .navbar-side .navbar-nav>li>a,
 .navbar-side .navbar-nav>li>a:focus,
 .navbar-side .navbar-nav>li>a:hover,
@@ -574,6 +584,8 @@ a:focus {
     outline: none;
     color: #fff;
     background-color: #292929;
+    pointer-events: none;
+   
 }
 
 .navbar-side .side-nav li,

@@ -1,5 +1,5 @@
 <!-- begin SIDE NAVIGATION -->
-<nav class="navbar-side" role="navigation" ng-controller="SideNavController">
+<nav class="navbar-side" role="navigation">
     <div class="navbar-collapse sidebar-collapse collapse">
         <ul id="side" class="nav navbar-nav side-nav">
             <!-- begin SIDE NAV USER PutANEL -->
@@ -26,7 +26,7 @@
             </li>
             <!-- end SIDE NAV SEARCH -->
             <li ng-repeat="button in buttons" ng-click="toggle($index)">
-                <a href="#">
+                <a href="#" ng-class="{select: isSelected($index)}">
                     <i class="{{button.class}}"></i> {{button.label}} 
                 </a>
             </li>

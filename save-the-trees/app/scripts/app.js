@@ -47,7 +47,7 @@
         this.changeLoginState();
 
         // automatically show My EcoCisco after login 
-        this.buttons[0].selected = true;
+        this.toggleDashboard(0);
       };
 
   });
@@ -72,6 +72,8 @@
       selected: false
     }];
 
+    $scope.activePanel = '';
+
     function returnSelectedButton(array) {
       for (var i = 0; i < array.length; i++) {
         if (array[i].selected) {
@@ -79,49 +81,64 @@
         }
       }
       return null;
-    }
+    };
 
     $scope.isSelected = function(index) {
       return (this.buttons[index].selected && this.state.isLoggedIn);
-    }
+    };
 
-    $scope.showPanel = function(panelName) {
+    $scope.panelIsSelected = function(panelName) {
       for(var i = 0; i < this.buttons.length; i++) {
-        if (panelName == this.buttons[i].label && this.state.isLoggedIn) {
+        if (panelName == this.buttons[i].label && this.state.isLoggedIn && this.buttons[i].selected) {
           return true;
         }
       }
       return false;
-    }
+    };
 
-    $scope.toggle = function(index) {
+    $scope.toggleDashboard = function(index) {
       if (this.state.isLoggedIn) {
         var prevSelectedElem = returnSelectedButton(this.buttons);
         if (prevSelectedElem) {
           prevSelectedElem.selected = false;
         }
         this.buttons[index].selected = true;
+        this.activePanel = this.buttons[index].label
       }
-    }
+    };
 
   });
   
   app.controller('MyEcoCiscoController', function($scope) {
-    $scope.ECO_CISCO_PANEL = "My EcoCisco";
+    $scope.PANEL = "My EcoCisco";
+    $scope.showPanel = function() {
+      return this.panelIsSelected(this.PANEL);
+    };
 
   });
 
   app.controller('MyEcoStandingController', function($scope){
-    $scope.ECO_STANDING_PANEL = "My EcoStanding";
+    $scope.PANEL = "My EcoStanding";
+    $scope.showPanel = function() {
+      return this.panelIsSelected(this.PANEL);
+    };
 
   });
 
   app.controller('MyEcoEnergyController', function($scope) {
-    $scope.ECO_ENERGY_PANEL = 'MyEcoEnergyController';
+    $scope.PANEL = 'My EcoEnergy';
+    $scope.showPanel = function() {
+      return this.panelIsSelected(this.PANEL);
+    };
+
   });
 
   app.controller('AboutController', function($scope) {
-    $scope.ABOUT_PANEL = 'AboutController';
+    $scope.PANEL = 'About';
+    $scope.showPanel = function() {
+      return this.panelIsSelected(this.PANEL);
+    };
+
   });
     
 })();

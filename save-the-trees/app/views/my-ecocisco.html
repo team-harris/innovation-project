@@ -1,35 +1,131 @@
 <div class="portlet portlet-purple" ng-controller="MyEcoCiscoController" ng-show="showPanel()">
     <div class="portlet-heading">
         <div class="portlet-title">
-            <h4>My EcoCisco</h4>
-        </div>
-        <div class="portlet-widgets">
-            <ul id="myTab" class="list-inline tabbed-portlets">
-                <li class="active"><a class="btn btn-xs btn-default" href="#tab1" data-toggle="tab">Tab #1</a></li>
-                <li><a class="btn btn-xs btn-default" href="#tab2" data-toggle="tab">Tab #2</a></li>
-            </ul>
-            <span class="divider"></span>
-            <a data-toggle="collapse" data-parent="#accordion" href="#purplePortlet"><i class="fa fa-chevron-down"></i></a>
+            <h4>Your EcoCisco</h4>
         </div>
         <div class="clearfix"></div>
-        </div>
-        <div id="purplePortlet" class="panel-collapse collapse in">
-            <div class="portlet-body">
-                <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade in active" id="tab1">
-                        <p>Portlet class:
-                            <code>.portlet-purple</code>. <strong>Tab #1</strong>
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tempus libero. Aliquam et dui at augue aliquet gravida at at est. Curabitur mattis sem sed dolor sagittis blandit. Nulla facilisi. Praesent eget nibh nisl. Sed scelerisque ligula sed justo lobortis, at pharetra ipsum ornare. Pellentesque non nisl sit amet erat venenatis semper tincidunt sit amet erat.</p>
+    </div>
+    <div id="purplePortlet" class="panel-collapse collapse in">
+        <div class="portlet-body">
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="tab1"> 
+                    <div class="row">
+                            <!-- START PROFILE IMAGE -->
+                            <div class="col-md-3 col-md-offset-1">
+                                <img class="img-circle" src="../images/profile-pic.jpg" alt="">
+                            </div>
+                            <!-- END PROFILE IMAGE -->
+                            <!-- START USER POINTS/SCORE -->
+                            <div class="col-md-3 col-md-offset-1">
+                                <div class="circle-tile">
+                                    <a href="#">
+                                        <div class="circle-tile-heading dark-blue">
+                                            <i class="fa fa-users fa-fw fa-3x"></i>
+                                        </div>
+                                    </a>
+                                    <div class="circle-tile-content dark-blue">
+                                        <div class="circle-tile-description text-faded"> John Smith </div>
+                                        <div class="circle-tile-number text-faded"> 
+                                            265
+                                            <span id="sparklineA"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END USER POINTS/SCORE -->
+                            <!-- START TEAM POINTS/SCORE -->
+                            <div class="col-md-3">
+                                <div class="circle-tile">
+                                    <a href="#">
+                                        <div class="circle-tile-heading dark-blue">
+                                            <i class="fa fa-users fa-fw fa-3x"></i>
+                                        </div>
+                                    </a>
+                                    <div class="circle-tile-content dark-blue">
+                                        <div class="circle-tile-description text-faded"> Team Harris </div>
+                                        <div class="circle-tile-number text-faded"> 
+                                            1999
+                                            <span id="sparklineA"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TEAM POINTS/SCORE-->
                     </div>
-                    <div class="tab-pane fade" id="tab2">
-                        <p>Portlet class:
-                            <code>.portlet-purple</code>. <strong>Tab #2</strong>
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tempus libero. Aliquam et dui at augue aliquet gravida at at est. Curabitur mattis sem sed dolor sagittis blandit. Nulla facilisi. Praesent eget nibh nisl. Sed scelerisque ligula sed justo lobortis, at pharetra ipsum ornare. Pellentesque non nisl sit amet erat venenatis semper tincidunt sit amet erat.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <!-- START PLEGES TABLES -->
+                                <div class="portlet portlet-orange">
+                                    <div class="portlet-heading">
+                                        <div class="portlet-title">
+                                            <h4>Hoverable Responsive Table</h4>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="portlet-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>First Name</th>
+                                                            <th>Last Name</th>
+                                                            <th>Username</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>Jacob</td>
+                                                            <td>Thornton</td>
+                                                            <td>@fat</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>Larry</td>
+                                                            <td>the Bird</td>
+                                                            <td>@twitter</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- END PLEDGES TABLE -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- START SINGLE NUMBER ENERGY USAGE -->
+                            <div class="tile light-gray" style="height: 320px">
+                                <h4><i class="fa fa-bolt"></i> Realtime Energy Usage <a href="javascript:;"><i class="fa fa-refresh pull-right"></i></a>
+                                </h4>
+                                <h4><strong>10 kWH </strong></h4>     
+                                <div class="flot-chart flot-chart-dashboard">
+                                    <div class="flot-chart-content" id="flot-chart-moving-line"></div>
+                                </div>
+                            </div>
+                             <!-- END SINGLE NUMBER ENERGY -->
+                        </div>
+                        <div class="col-md-3 pricing-circle">
+                            <!-- START SINGLE NUMBER PLEDGE POINTS -->
+                            <ul class="plan plan4">
+                                <li class="plan-name">
+                                    Pledge Points
+                                </li>
+                                <li class="plan-price">
+                                    <h4><strong>39</strong> Points</h4>
+                                </li>
+                            </ul>
+                             <!-- END SINGLE NUMBER PLEDGE POINTS -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div> 
+</div>

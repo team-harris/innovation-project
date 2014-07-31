@@ -116,6 +116,7 @@ $(function () {
 //Flot Chart Dynamic Chart
 
 $(function() {
+	
 
 	var container = $("#flot-chart-moving-line");
 

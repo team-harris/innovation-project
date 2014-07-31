@@ -57,18 +57,22 @@
     $scope.buttons = [{
       label: 'My EcoCisco', 
       class: 'fa fa-dashboard',
+      id: "my-ecocisco-button",
       selected: false
     }, {
       label: 'My EcoStanding',
       class: 'fa fa-table',
+      id: "my-ecostanding-button",
       selected: false
     }, {
       label: 'My EcoEnergy',
       class: 'fa fa-bar-chart-o',
+      id: "my-ecoenergy-button",
       selected: false
     }, {
       label: 'About',
       class: 'fa fa-edit',
+      id: "about-button",
       selected: false
     }];
 

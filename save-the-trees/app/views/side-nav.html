@@ -25,9 +25,9 @@
                 </form>
             </li>
             <!-- end SIDE NAV SEARCH -->
-            <li ng-repeat="button in buttons" ng-click="toggleDashboard($index)">
+            <li id="{{button.id}}" ng-repeat="button in buttons" ng-click="toggleDashboard($index)">
                 <a href="#" ng-class="{select: isSelected($index)}">
-                    <i class="{{button.class}}"></i> {{button.label}} 
+                    <i class="{{button.class}}" ></i> {{button.label}} 
                 </a>
             </li>
         </ul>

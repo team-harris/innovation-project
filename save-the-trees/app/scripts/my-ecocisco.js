@@ -122,7 +122,7 @@ $(document).ready(function() {
 			function getEnergyUsage() {
 				$.ajax({
   					type: "GET",
-  					url: "http://ecocisco.elasticbeanstalk.com/powermonitor/getlivedata/natshiel",
+  					url: "http://10.156.48.50:9081/innovation/powermonitor/getlivedata/natshiel",
   					success: function(data) {
   						var value = parseEnergyUsageData(data);
   						setPointsOnTicker(value, energyUsageTicker);
@@ -161,7 +161,7 @@ $(document).ready(function() {
 
 			setInterval(function() {
 				setPointsOnTicker(getUserPoints(), userPointsTicker);
-			}, 1000 * 30);
+			}, 500);
 
 
 			//===========================================================
@@ -177,9 +177,9 @@ $(document).ready(function() {
 			function getTeamPoints() {
 					$.ajax({
   					type: "GET",
-  					url: 'http://10.21.81.249:9081/innovation/powermonitor/getuserdata?data={"username":"natshiel","hours":"10","days":"0","months":"0"}',
+  					url: 'http://10.156.48.50:9081/innovation/powermonitor/getuserdata?data={"username":"natshiel","hours":"10","days":"0","months":"0"}',
   					success: function(data) {
-  						console.log(data);
+  						console.log(data)
   					},
 
   					error: function(xhr, text, error) {
@@ -213,7 +213,7 @@ $(document).ready(function() {
 			function getPledgePoints() {
 				$.ajax({
   					type: "GET",
-  					url: "http://10.21.81.249:9081/innovation/powermonitor/getpledge/natshiel",
+  					url: "http://10.156.48.50:9081/innovation/powermonitor/getpledge/natshiel",
   					success: function(data) {
   						var value = parsePledgePointsData(data);
   						setPointsOnTicker(value, pledgePointsTicker)
@@ -230,7 +230,7 @@ $(document).ready(function() {
 			
 			setInterval(function() {
 				setPointsOnTicker(getPledgePoints(), pledgePointsTicker);
-			}, 1000 * 60 );		
+			}, 1000 );		
 
 		}	
 

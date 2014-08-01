@@ -61,7 +61,7 @@ $(document).ready(function() {
 			function getUserEnergy() {
 				$.ajax({
   					type: "GET",
-  					url: 'http://10.21.81.249:9081/innovation/powermonitor/getuserdata?data={"username":"natshiel","hours":"0","days":"10","months":"0"}',
+  					url: 'http://10.156.48.50:9081/innovation/powermonitor/getuserdata?data={"username":"natshiel","hours":"0","days":"10","months":"0"}',
   					success: function(data) {
   						console.log(data);
   						var values = parseUserEnergyData(data.daysMap);
@@ -104,7 +104,7 @@ $(document).ready(function() {
 			function getTeamEnergy() {
 				$.ajax({
   					type: "GET",
-  					url: 'http://10.21.81.249:9081/innovation/powermonitor/getgroupdata?data={"group":"Team Harris","hours":"0","days":"10","months":"0"}',
+  					url: 'http://10.156.48.50:9081/innovation/powermonitor/getgroupdata?data={"group":"Team Harris","hours":"0","days":"10","months":"0"}',
   					success: function(data) {
   						var values = parseTeamEnergyData(data.listOfUserResponses);
   						drawChart('morris-chart-line-team-ecoenergy-day', values,'d', ['wattage'], ['#16a085'], ['wattage']);

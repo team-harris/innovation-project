@@ -117,17 +117,17 @@ $(document).ready(function() {
 			}
 
 			function parseUserPointsData(data)  {
-				return value;
+				return data.watts;
 			}
+
+			/*
 
 			function getUserPoints() {
 				$.ajax({
   					type: "GET",
-  					url: "http://10.156.44.86:9081/innovation/powermonitor/getlivedata/abaho",
+  					url: "http://10.33.217.159:8080/innovation/powermonitor/getlivedata/natshiel",
   					success: function(data) {
-  					var value = parseUserPointsData(data);
-
-
+  						var value = parseUserPointsData(data);
   						setPointsOnTicker(value, userPointsTicker)
   					},
   					dataType: "json"
@@ -139,13 +139,14 @@ $(document).ready(function() {
 			setInterval(function() {
 				getUserPoints();
 			}, 1000 * 30);
+*/
 
-/*
 
 			function getUserPoints() {
 				return	Math.floor((Math.random() * 100) + 1);	
 			}
-*/
+
+
 			setPointsOnTicker(getUserPoints(), userPointsTicker);
 
 			setInterval(function() {
@@ -244,41 +245,36 @@ $(document).ready(function() {
 			//===========================================================
 			var energyUsageTicker = $("#energy-usage-ticker");
 
-			/*	function parseEnergyUsageData(data)  {
-				return value;
+			function parseEnergyUsageData(data)  {
+				return data.watts;
 			}
 
 			function getEnergyUsage() {
 				$.ajax({
-  					type: "POST",
-  					url: "",
-  					data: {},
+  					type: "GET",
+  					url: "http://10.33.217.159:8080/innovation/powermonitor/getlivedata/natshiel",
   					success: function(data) {
-  						//var value = parseEnergyUsageData(data);
-
-  						setPointsOnTicker(value, energyUsageTicker)
+  						var value = parseUserPointsData(data);
+  						setPointsOnTicker(value, userPointsTicker)
   					},
   					dataType: "json"
 				});
 			}
+  	
 
 			getEnergyUsage();
 
-			setInterval(function() {
-				getEnergyUsage();
-			}, 1000 * 30);
-
-*/
-			
+			/*
 			function getEnergyUsage() {
 				return	Math.floor((Math.random() * 100) + 1);	
 			}		
+			*/
 
 			setPointsOnTicker(getEnergyUsage(), energyUsageTicker);
 			
 			setInterval(function() {
 				setPointsOnTicker(getEnergyUsage(), energyUsageTicker);
-			}, 1000);			
+			}, 1000 * 30);			
 
 		}	
 

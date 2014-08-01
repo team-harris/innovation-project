@@ -47,8 +47,6 @@ $(document).ready(function() {
 		        return res;
 		    }
 
-			//
-
 			series = [{
 				data: getRandomData(),
 				lines: {
@@ -114,17 +112,21 @@ $(document).ready(function() {
 
 			var userPointsTicker = $("#user-points-ticker");
 			
-/*			function parseUserPointsData(data)  {
+			function convertWattageToPoints(data) {
+
+			}
+
+			function parseUserPointsData(data)  {
 				return value;
 			}
 
 			function getUserPoints() {
 				$.ajax({
-  					type: "POST",
-  					url: "",
-  					data: {},
+  					type: "GET",
+  					url: "http://10.156.44.86:9081/innovation/powermonitor/getlivedata/abaho",
   					success: function(data) {
-  						//var value = parseUserPointsData(data);
+  					var value = parseUserPointsData(data);
+
 
   						setPointsOnTicker(value, userPointsTicker)
   					},
@@ -136,14 +138,14 @@ $(document).ready(function() {
 
 			setInterval(function() {
 				getUserPoints();
-			}, 1000);
+			}, 1000 * 30);
 
-*/
+/*
 
 			function getUserPoints() {
 				return	Math.floor((Math.random() * 100) + 1);	
 			}
-
+*/
 			setPointsOnTicker(getUserPoints(), userPointsTicker);
 
 			setInterval(function() {
@@ -157,7 +159,7 @@ $(document).ready(function() {
 			var teamPointsTicker = $("#team-points-ticker");
 
 
-			/*	function parseTeamPointsData(data)  {
+		/*	function parseTeamPointsData(data)  {
 				return value;
 			}
 
@@ -181,7 +183,7 @@ $(document).ready(function() {
 				getTeamPoints();
 			}, 1000 * 30);
 
-*/
+		*/
 			
 			function getTeamPoints() {
 				return	Math.floor((Math.random() * 100) + 1);	
@@ -200,7 +202,7 @@ $(document).ready(function() {
 
 
 
-			/*	function parsePledgePointsData(data)  {
+		/*	function parsePledgePointsData(data)  {
 				return value;
 			}
 

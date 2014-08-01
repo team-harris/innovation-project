@@ -12,7 +12,7 @@
     <!-- GLOBAL SCRIPTS -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="scripts/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="scripts/js/plugins/bootstrap/bootstrap.js"></script>
     <script src="scripts/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
     <script src="scripts/js/plugins/popupoverlay/jquery.popupoverlay.js"></script>
     <script type="text/javascript" src="scripts/js/plugins/flot/jquery.flot.js"></script>
@@ -129,7 +129,7 @@
             <nav class="navbar-side" role="navigation">
                 <div class="navbar-collapse sidebar-collapse collapse">
                     <ul id="side" class="nav navbar-nav side-nav">
-                        <!-- begin SIDE NAV USER PutANEL -->
+                        <!-- begin SIDE NAV USER PANEL -->
                         <li class="side-user hidden-xs">
                             <img id="side-nav-eco-cisco-logo" src="../images/eco-cisco-logo.png" alt="">
                             <p class="welcome">
@@ -341,192 +341,139 @@
                                         </div>
                                         <!-- MY ECOCISCO PANEL END -->
 
-                                        <!-- MY ECOSTANDING PANEL BEGIN -->
-                                        <div id="my-ecostanding-panel" class="portlet portlet-purple" ng-controller="MyEcoStandingController" ng-show="showPanel()">
-                                            
+                                         <!-- MY ECOSTANDING PANEL BEGIN -->                      
+                                        <div id="my-ecostanding-panel" class="portlet portlet-green" ng-controller="MyEcoStandingController" ng-show="showPanel()">
                                             <div class="portlet-heading">
                                                 <div class="portlet-title">
                                                     <h4>My EcoStanding</h4>
                                                 </div>
-                                                <div class="portlet-widgets">
-                                                    <ul id="myTab" class="list-inline tabbed-portlets">
-                                                        <li class="active"><a class="btn btn-xs btn-default" href="#tab1" data-toggle="tab">Tab #1</a></li>
-                                                        <li><a class="btn btn-xs btn-default" href="#tab2" data-toggle="tab">Tab #2</a></li>
-                                                    </ul>
-                                                    <span class="divider"></span>
-                                                    <a data-toggle="collapse" data-parent="#accordion" href="#purplePortlet"><i class="fa fa-chevron-down"></i></a>
-                                                </div>
                                                 <div class="clearfix"></div>
-                                                </div>
-                                                <div id="purplePortlet" class="panel-collapse collapse in">
-                                                    <div class="portlet-body">
-                                                        <div id="myTabContent" class="tab-content">
-                                                            <div class="tab-pane fade in active" id="tab1">
-                                                                <div class="portlet portlet-orange">
-                                                                    <div class="portlet-heading">
-                                                                        <div class="portlet-title">
-                                                                            <h4>Hoverable Responsive Table</h4>
-                                                                        </div>
-                                                                        <div class="clearfix"></div>
-                                                                    </div>
-                                                                    <div class="portlet-body">
-                                                                            <div class="table-responsive">
-                                                                                <table class="table table-hover">
-                                                                                    <thead>
-                                                                                        <tr>
-                                                                                            <th>#</th>
-                                                                                            <th>First Name</th>
-                                                                                            <th>Last Name</th>
-                                                                                            <th>Username</th>
-                                                                                        </tr>
-                                                                                    </thead>
-                                                                                    <tbody>
-                                                                                        <tr>
-                                                                                            <td>1</td>
-                                                                                            <td>Mark</td>
-                                                                                            <td>Otto</td>
-                                                                                            <td>@mdo</td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td>2</td>
-                                                                                            <td>Jacob</td>
-                                                                                            <td>Thornton</td>
-                                                                                            <td>@fat</td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td>3</td>
-                                                                                            <td>Larry</td>
-                                                                                            <td>the Bird</td>
-                                                                                            <td>@twitter</td>
-                                                                                        </tr>
-                                                                                    </tbody>
-                                                                                </table>
-                                                                            </div>
-                                                                    </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <ul id="myPills" class="nav nav-pills">
+                                                    <li class="active"><a href="#my-ecoenergy-my-energy" data-toggle="tab">Your EcoStanding</a>
+                                                    </li>
+                                                    <li><a href="#my-ecoenergy-team-energy" data-toggle="tab">Your Team EcoStanding</a>
+                                                    </li>
+                                                </ul>
+                                                <div id="myPillsContent" class="tab-content">
+                                                    <div class="tab-pane fade in active" id="my-ecoenergy-my-energy">
+                                                        <!--YOUR ECOSTANDING BEGIN -->
+                                                        <div class="portlet portlet-green">
+                                                            <div class="portlet-heading">
+                                                                <div class="portlet-title">
+                                                                    <h4>Line Chart</h4>
                                                                 </div>
+                                                                <div class="portlet-widgets">
+                                                                    <a href="javascript:;"><i class="fa fa-refresh"></i></a>
+                                                                    <span class="divider"></span>
+                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#lineChart"><i class="fa fa-chevron-down"></i></a>
+                                                                </div>
+                                                                <div class="clearfix"></div>
                                                             </div>
-                                                            <div class="tab-pane fade" id="tab2">
-                                                                <div class="portlet portlet-orange">
-                                                                    <div class="portlet-heading">
-                                                                        <div class="portlet-title">
-                                                                            <h4>Hoverable Responsive Table</h4>
-                                                                        </div>
-                                                                        <div class="clearfix"></div>
-                                                                    </div>
-                                                                    <div class="portlet-body">
-                                                                        <div class="table-responsive">
-                                                                            <table class="table table-hover">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th>#</th>
-                                                                                        <th>First Name</th>
-                                                                                        <th>Last Name</th>
-                                                                                        <th>Username</th>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                    <tr>
-                                                                                        <td>1</td>
-                                                                                        <td>Mark</td>
-                                                                                        <td>Otto</td>
-                                                                                        <td>@mdo</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>2</td>
-                                                                                        <td>Jacob</td>
-                                                                                        <td>Thornton</td>
-                                                                                        <td>@fat</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>3</td>
-                                                                                        <td>Larry</td>
-                                                                                        <td>the Bird</td>
-                                                                                        <td>@twitter</td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div>
-                                                                    </div>
+                                                            <div id="lineChart" class="panel-collapse collapse in">
+                                                                <div class="portlet-body">
+                                                                    <div id="morris-chart-line"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        asdasdsadas
+                                                        <!--YOUR ECOENERGY END -->
+                                                    </div>
+                                                    
+                                                    <div class="tab-pane fade" id="my-ecoenergy-team-energy">
+                                                        <!--YOUR TEAM ECOSTANDING BEGIN -->
+                                                        <div class="portlet portlet-green">
+                                                            <div class="portlet-heading">
+                                                                <div class="portlet-title">
+                                                                    <h4>Line Chart</h4>
+                                                                </div>
+                                                                <div class="portlet-widgets">
+                                                                    <a href="javascript:;"><i class="fa fa-refresh"></i></a>
+                                                                    <span class="divider"></span>
+                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#lineChart"><i class="fa fa-chevron-down"></i></a>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                            <div id="lineChart" class="panel-collapse collapse in">
+                                                                <div class="portlet-body">
+                                                                    <div id="morris-chart-line"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- YOUR TEAM ECOSTANDING END -->
                                                     </div>
                                                 </div>
-                                            </div>
+                                           </div>
                                         </div> 
                                         <!-- MY ECOSTANDING PANEL END -->
 
+
                                         <!-- MY ECOENERGY PANEL BEGIN -->                                        
-                                        <div id="my-eco-energy-panel" class="portlet portlet-purple" ng-controller="MyEcoEnergyController" ng-show="showPanel()">
+                                        <div id="my-ecoenergy-panel" class="portlet portlet-green" ng-controller="MyEcoEnergyController" ng-show="showPanel()">
                                             <div class="portlet-heading">
                                                 <div class="portlet-title">
                                                     <h4>My EcoEnergy</h4>
                                                 </div>
-                                                <div class="portlet-widgets">
-                                                    <ul id="myTab" class="list-inline tabbed-portlets">
-                                                        <li class="active"><a class="btn btn-xs btn-default" href="#tab1" data-toggle="tab">Tab #1</a></li>
-                                                        <li><a class="btn btn-xs btn-default" href="#tab2" data-toggle="tab">Tab #2</a></li>
-                                                    </ul>
-                                                    <span class="divider"></span>
-                                                    <a data-toggle="collapse" data-parent="#accordion" href="#purplePortlet"><i class="fa fa-chevron-down"></i></a>
-                                                </div>
                                                 <div class="clearfix"></div>
-                                                </div>
-                                                <div id="purplePortlet" class="panel-collapse collapse in">
-                                                    <div class="portlet-body">
-                                                        <div id="myTabContent" class="tab-content">
-                                                            <div class="tab-pane fade in active" id="tab1">
-                                                                <div class="row">
-                                                                    <div class="col-lg-12">
-                                                                    <div class="portlet portlet-green">
-                                                                        <div class="portlet-heading">
-                                                                            <div class="portlet-title">
-                                                                                <h4>Line Chart</h4>
-                                                                            </div>
-                                                                            <div class="portlet-widgets">
-                                                                                <a href="javascript:;"><i class="fa fa-refresh"></i></a>
-                                                                                <span class="divider"></span>
-                                                                                <a data-toggle="collapse" data-parent="#accordion" href="#lineChart"><i class="fa fa-chevron-down"></i></a>
-                                                                            </div>
-                                                                            <div class="clearfix"></div>
-                                                                        </div>
-                                                                        <div id="lineChart" class="panel-collapse collapse in">
-                                                                            <div class="portlet-body">
-                                                                                <div id="morris-chart-line"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <ul id="myPills" class="nav nav-pills">
+                                                    <li class="active"><a href="#my-ecoenergy-my-energy" data-toggle="tab">Your EcoStanding</a>
+                                                    </li>
+                                                    <li><a href="#my-ecoenergy-team-energy" data-toggle="tab">Your Team EcoStanding</a>
+                                                    </li>
+                                                </ul>
+                                                <div id="myPillsContent" class="tab-content">
+                                                    <!-- YOUR ECOENERGY BEGIN -->
+                                                    <div class="tab-pane fade in active" id="my-ecoenergy-my-energy">
+                                                        <!--YOUR ECOENERGY BEGIN -->
+                                                        <div class="portlet portlet-green">
+                                                            <div class="portlet-heading">
+                                                                <div class="portlet-title">
+                                                                    <h4>Line Chart</h4>
                                                                 </div>
+                                                                <div class="portlet-widgets">
+                                                                    <a href="javascript:;"><i class="fa fa-refresh"></i></a>
+                                                                    <span class="divider"></span>
+                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#lineChart"><i class="fa fa-chevron-down"></i></a>
+                                                                </div>
+                                                                <div class="clearfix"></div>
                                                             </div>
-                                                            <div class="tab-pane fade" id="tab2">
-                                                                <div class="row">
-                                                                    <div class="col-lg-12">
-                                                                        <div class="portlet portlet-green">
-                                                                            <div class="portlet-heading">
-                                                                                <div class="portlet-title">
-                                                                                    <h4>Line Chart</h4>
-                                                                                </div>
-                                                                                <div class="portlet-widgets">
-                                                                                    <a href="javascript:;"><i class="fa fa-refresh"></i></a>
-                                                                                    <span class="divider"></span>
-                                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#lineChart"><i class="fa fa-chevron-down"></i></a>
-                                                                                </div>
-                                                                                <div class="clearfix"></div>
-                                                                            </div>
-                                                                            <div id="lineChart" class="panel-collapse collapse in">
-                                                                                <div class="portlet-body">
-                                                                                    <div id="morris-chart-line"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                            <div id="lineChart" class="panel-collapse collapse in">
+                                                                <div class="portlet-body">
+                                                                    <div id="morris-chart-line"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <!--YOUR ECOENERGY END -->
+                                                    </div>
+                                                    <!-- YOUR ECOENERGY END -->
+                                                     <div class="tab-pane fade" id="my-ecoenergy-team-energy">
+                                                        <!--YOUR TEAM ECOENERGY BEGIN -->
+                                                        <div class="portlet portlet-green">
+                                                            <div class="portlet-heading">
+                                                                <div class="portlet-title">
+                                                                    <h4>Line Chart</h4>
+                                                                </div>
+                                                                <div class="portlet-widgets">
+                                                                    <a href="javascript:;"><i class="fa fa-refresh"></i></a>
+                                                                    <span class="divider"></span>
+                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#lineChart"><i class="fa fa-chevron-down"></i></a>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                            <div id="lineChart" class="panel-collapse collapse in">
+                                                                <div class="portlet-body">
+                                                                    <div id="morris-chart-line"></div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <!-- YOUR TEAM ECOENERGY END -->
                                                     </div>
                                                 </div>
-                                            </div>
+                                           </div>
                                         </div> 
                                         <!-- MY ECOENERGY PANEL END -->
 

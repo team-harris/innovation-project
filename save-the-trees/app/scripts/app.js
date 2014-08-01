@@ -111,6 +111,31 @@
       }
     };
 
+    function hasClass(element, cls) {
+      return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+    }
+
+    function getActiveElement(array) {
+      for (var i = 0; i < array.length; i++) {
+        var element = document.getElementById(array[i]);
+        if (element.classList.contains("active")) {
+          return element;
+        }
+      }
+    }
+
+    $scope.toggleActiveTabs = function(panelArray) {
+      var element = document.getElementById(panelArray[0]);
+      var activeElement = getActiveElement(panelArray);
+      activeElement.classList.remove("active");
+      element.classList.add("active");
+    };
+
+    $scope.toggleActivePanel = function(elementId) {
+      var element = document.getElementById(elementId);
+      return element.classList.contains("active");
+    }
+
   });
   
   app.controller('MyEcoCiscoController', function($scope) {

@@ -13,6 +13,9 @@ $(document).ready(function() {
 
 			elem.attr("isStarted", true);
 
+			//User Wattage
+			var userWattage = 0;
+
 			//========================================
 			// Code for the Moving Line
 			//========================================
@@ -33,8 +36,8 @@ $(document).ready(function() {
 
 		        while (data.length < maximum) {
 		            var previous = data.length ? data[data.length - 1] : 50;
-		            var y = previous + Math.random() * 10 - 5;
-		            data.push(y < 0 ? 0 : y > 100 ? 100 : y);
+		            var y = userWattage;
+		            data.push(y < 0 ? 0 : y > 150 ? 150 : y);
 		        }
 
 		        // zip the generated y values with the x values
@@ -83,7 +86,7 @@ $(document).ready(function() {
 				},
 				yaxis: {
 					min: 0,
-					max: 110
+					max: 150
 				},
 				legend: {
 					show: true
@@ -106,6 +109,39 @@ $(document).ready(function() {
 				elem.text(text);
 			}
 
+			//===========================================================
+			//  Energy Usage Ticker
+			//===========================================================
+			var energyUsageTicker = $("#energy-usage-ticker");
+
+			function parseEnergyUsageData(data)  {
+				userWattage = data.watts;
+				return userWattage;
+			}
+
+			function getEnergyUsage() {
+				$.ajax({
+  					type: "GET",
+  					url: "http://ecocisco.elasticbeanstalk.com/powermonitor/getlivedata/natshiel",
+  					success: function(data) {
+  						var value = parseEnergyUsageData(data);
+  						setPointsOnTicker(value, energyUsageTicker);
+  					},
+
+  					error: function(xhr, text, error) {
+  						console.log("REQUEST FAILED");
+  					},
+
+  					dataType: "json"
+				});
+			}
+
+			setPointsOnTicker(getEnergyUsage(), energyUsageTicker);
+			
+			setInterval(function() {
+				setPointsOnTicker(getEnergyUsage(), energyUsageTicker);
+			}, 1000 * 10);	
+
 			//========================================================
 			// User Point Ticker
 			//========================================================
@@ -116,42 +152,16 @@ $(document).ready(function() {
 
 			}
 
-			function parseUserPointsData(data)  {
-				return data.watts;
-			}
-
-			/*
-
 			function getUserPoints() {
-				$.ajax({
-  					type: "GET",
-  					url: "http://10.33.217.159:8080/innovation/powermonitor/getlivedata/natshiel",
-  					success: function(data) {
-  						var value = parseUserPointsData(data);
-  						setPointsOnTicker(value, userPointsTicker)
-  					},
-  					dataType: "json"
-				});
+				//convertWattageToPoints
+				return userWattage;
 			}
-
-			getUserPoints();
-
-			setInterval(function() {
-				getUserPoints();
-			}, 1000 * 30);
-*/
-
-
-			function getUserPoints() {
-				return	Math.floor((Math.random() * 100) + 1);	
-			}
-
-
+	
 			setPointsOnTicker(getUserPoints(), userPointsTicker);
 
 			setInterval(function() {
 				setPointsOnTicker(getUserPoints(), userPointsTicker);
-			}, 1000);
+			}, 1000 * 30);
 
 
 			//===========================================================
@@ -160,41 +170,34 @@ $(document).ready(function() {
 			var teamPointsTicker = $("#team-points-ticker");
 
 
-		/*	function parseTeamPointsData(data)  {
-				return value;
+			function parseTeamPointsData(data)  {
+				return 200;
 			}
 
 			function getTeamPoints() {
-				$.ajax({
-  					type: "POST",
-  					url: "",
-  					data: {},
+					$.ajax({
+  					type: "GET",
+  					url: 'http://10.21.81.249:9081/innovation/powermonitor/getuserdata?data={"username":"natshiel","hours":"10","days":"0","months":"0"}',
   					success: function(data) {
-  						//var value = parseTeamPointsData(data);
-
-  						setPointsOnTicker(value, teamPointsTicker)
+  						console.log(data);
   					},
+
+  					error: function(xhr, text, error) {
+  						console.log("REQUEST FAILED");
+  					},
+
   					dataType: "json"
 				});
+	
 			}
-
-			getTeamPoints();
-
-			setInterval(function() {
-				getTeamPoints();
-			}, 1000 * 30);
-
-		*/
 			
+			/*
 			function getTeamPoints() {
 				return	Math.floor((Math.random() * 100) + 1);	
 			}	
+			*/
 
 			setPointsOnTicker(getTeamPoints(), teamPointsTicker);	
-				
-			setInterval(function() {
-				setPointsOnTicker(getTeamPoints(), teamPointsTicker);
-			}, 1000);
 
 			//===========================================================
 			// Pledge Points Ticker
@@ -202,79 +205,32 @@ $(document).ready(function() {
 			var pledgePointsTicker = $("#pledge-points-ticker");
 
 
-
-		/*	function parsePledgePointsData(data)  {
+			function parsePledgePointsData(data)  {
+				var value = data.pledges;
 				return value;
 			}
 
 			function getPledgePoints() {
 				$.ajax({
-  					type: "POST",
-  					url: "",
-  					data: {},
+  					type: "GET",
+  					url: "http://10.21.81.249:9081/innovation/powermonitor/getpledge/natshiel",
   					success: function(data) {
-  						//var value = parsePledgePointsData(data);
-
+  						var value = parsePledgePointsData(data);
   						setPointsOnTicker(value, pledgePointsTicker)
+  					},
+
+  					error: function(xhr, status, text) {
+  						console.log("error get pledge data")
   					},
   					dataType: "json"
 				});
 			}
-
-			getPledgePoints();
-
-			setInterval(function() {
-				getPledgePoints();
-			}, 1000 * 30);
-
-*/
-			
-			function getPledgePoints() {
-				return	Math.floor((Math.random() * 100) + 1);	
-			}		
 
 			setPointsOnTicker(getPledgePoints(), pledgePointsTicker);
 			
 			setInterval(function() {
 				setPointsOnTicker(getPledgePoints(), pledgePointsTicker);
-			}, 1000);
-
-
-			//===========================================================
-			//  Energy Usage Ticker
-			//===========================================================
-			var energyUsageTicker = $("#energy-usage-ticker");
-
-			function parseEnergyUsageData(data)  {
-				return data.watts;
-			}
-
-			function getEnergyUsage() {
-				$.ajax({
-  					type: "GET",
-  					url: "http://10.33.217.159:8080/innovation/powermonitor/getlivedata/natshiel",
-  					success: function(data) {
-  						var value = parseUserPointsData(data);
-  						setPointsOnTicker(value, userPointsTicker)
-  					},
-  					dataType: "json"
-				});
-			}
-  	
-
-			getEnergyUsage();
-
-			/*
-			function getEnergyUsage() {
-				return	Math.floor((Math.random() * 100) + 1);	
-			}		
-			*/
-
-			setPointsOnTicker(getEnergyUsage(), energyUsageTicker);
-			
-			setInterval(function() {
-				setPointsOnTicker(getEnergyUsage(), energyUsageTicker);
-			}, 1000 * 30);			
+			}, 1000 * 60 );		
 
 		}	
 

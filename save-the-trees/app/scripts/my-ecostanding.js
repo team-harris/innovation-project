@@ -32,17 +32,7 @@ $(document).ready(function() {
 			}
 
 			function getUserStanding() {
-				$.ajax({
-  					type: "POST",
-  					url: "",
-  					data: {},
-  					success: function(data) {
-  						//var value = parseUserPointsData(data);
-
-  						setUserStandingData(data, table);
-  					},
-  					dataType: "json"
-				});
+				return MASSIVE_JSON_STRING;
 			}
 
 			getUserStanding();

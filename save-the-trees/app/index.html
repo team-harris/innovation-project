@@ -247,8 +247,8 @@
                                                                             </a>
                                                                             <div class="circle-tile-content dark-blue">
                                                                                 <div class="circle-tile-description text-faded"> Team Harris </div>
-                                                                                <div id="team-points-ticker" class="circle-tile-number text-faded"> 
-                                                                                    1999
+                                                                                <div class="circle-tile-number text-faded"> 
+                                                                                    <span id="team-points-ticker">1999</span>
                                                                                     <span id="sparklineA"></span>
                                                                                 </div>
                                                                             </div>
@@ -314,7 +314,7 @@
                                                                     <div class="tile light-gray" style="height: 320px">
                                                                         <h4><i class="fa fa-bolt"></i> Realtime Energy Usage <a href="javascript:;"><i class="fa fa-refresh pull-right"></i></a>
                                                                         </h4>
-                                                                        <h4><strong id="energy-usage-ticker">10 kWH </strong></h4>     
+                                                                        <h2><strong id="energy-usage-ticker">10 Watts </strong></h2>     
                                                                         <div class="flot-chart flot-chart-dashboard">
                                                                             <div class="flot-chart-content" id="flot-chart-moving-line"></div>
                                                                         </div>
@@ -359,55 +359,103 @@
                                                 <div id="myPillsContent" class="tab-content">
                                                     <div class="tab-pane fade in active" id="my-ecoenergy-my-energy">
                                                         <!--YOUR ECOSTANDING BEGIN -->
-                                                        <div class="portlet portlet-green">
+                                                        <div class="portlet portlet-default">
                                                             <div class="portlet-heading">
                                                                 <div class="portlet-title">
-                                                                    <h4>Line Chart</h4>
-                                                                </div>
-                                                                <div class="portlet-widgets">
-                                                                    <a href="javascript:;"><i class="fa fa-refresh"></i></a>
-                                                                    <span class="divider"></span>
-                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#lineChart"><i class="fa fa-chevron-down"></i></a>
+                                                                    <h4>Your EcoStanding</h4>
                                                                 </div>
                                                                 <div class="clearfix"></div>
                                                             </div>
-                                                            <div id="lineChart" class="panel-collapse collapse in">
-                                                                <div class="portlet-body">
-                                                                    <div id="morris-chart-line"></div>
+                                                            <div class="portlet-body">
+                                                                <div class="table-responsive">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>#</th>
+                                                                                <th>First Name 1</th>
+                                                                                <th>Last Name 1</th>
+                                                                                <th>Username 1</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Mark</td>
+                                                                                <td>Otto</td>
+                                                                                <td>@mdo</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>2</td>
+                                                                                <td>Jacob</td>
+                                                                                <td>Thornton</td>
+                                                                                <td>@fat</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>3</td>
+                                                                                <td>Larry</td>
+                                                                                <td>the Bird</td>
+                                                                                <td>@twitter</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        asdasdsadas
-                                                        <!--YOUR ECOENERGY END -->
+                                                        <!-- /.portlet -->
+                                                        <!--YOUR ECOSTANDING END -->
                                                     </div>
                                                     
                                                     <div class="tab-pane fade" id="my-ecoenergy-team-energy">
                                                         <!--YOUR TEAM ECOSTANDING BEGIN -->
-                                                        <div class="portlet portlet-green">
+                                                        <div class="portlet portlet-default">
                                                             <div class="portlet-heading">
                                                                 <div class="portlet-title">
-                                                                    <h4>Line Chart</h4>
-                                                                </div>
-                                                                <div class="portlet-widgets">
-                                                                    <a href="javascript:;"><i class="fa fa-refresh"></i></a>
-                                                                    <span class="divider"></span>
-                                                                    <a data-toggle="collapse" data-parent="#accordion" href="#lineChart"><i class="fa fa-chevron-down"></i></a>
+                                                                    <h4>Your Team Standing</h4>
                                                                 </div>
                                                                 <div class="clearfix"></div>
                                                             </div>
-                                                            <div id="lineChart" class="panel-collapse collapse in">
-                                                                <div class="portlet-body">
-                                                                    <div id="morris-chart-line"></div>
+                                                            <div class="portlet-body">
+                                                                <div class="table-responsive">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>#</th>
+                                                                                <th>First Name 2</th>
+                                                                                <th>Last Name 2</th>
+                                                                                <th>Username 2</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Mark</td>
+                                                                                <td>Otto</td>
+                                                                                <td>@mdo</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>2</td>
+                                                                                <td>Jacob</td>
+                                                                                <td>Thornton</td>
+                                                                                <td>@fat</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>3</td>
+                                                                                <td>Larry</td>
+                                                                                <td>the Bird</td>
+                                                                                <td>@twitter</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <!-- /.portlet -->
                                                         <!-- YOUR TEAM ECOSTANDING END -->
                                                     </div>
                                                 </div>
                                            </div>
                                         </div> 
                                         <!-- MY ECOSTANDING PANEL END -->
-
 
                                         <!-- MY ECOENERGY PANEL BEGIN -->                                        
                                         <div id="my-ecoenergy-panel" class="portlet portlet-green" ng-controller="MyEcoEnergyController" ng-show="showPanel()">
